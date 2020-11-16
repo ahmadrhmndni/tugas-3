@@ -1,4 +1,4 @@
-@php
+ @php
  function checkRouteActive($route){
  if(Route::current()->uri == $route) return 'active';
 }
@@ -20,7 +20,13 @@
           <img src="{{url('public')}}/dist/img/pp.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{ url('admin/beranda')}}" class="d-block">Ahmad Rahmandani</a>
+          <a href="{{ url('admin/beranda')}}" class="d-block">
+            @if(Auth::check())
+            {{request()->user()->nama}}
+            @else
+              Silahkan Login
+            @endif  
+          </a>
         </div>
       </div>
 
@@ -50,6 +56,14 @@
               <i class="nav-icon fas fa-archive"></i>
               <p>
                 Produk
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ url('admin/user') }}" class="nav-link {{checkRouteActive('admin/user')}}">
+              <i class="nav-icon fas fa-user"></i>
+              <p>
+                User
               </p>
             </a>
           </li>

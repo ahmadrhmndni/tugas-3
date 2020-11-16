@@ -34,7 +34,7 @@
       <h1 class="logo mr-auto"><a href="{{ url('admin/beranda') }}">Jual Beli Laptop Online</a></h1>
       <nav class="nav-menu d-none d-lg-block ">
         <ul>
-          <li class=><a href="{{ url('/index') }}">Home</a></li>
+          <li class=><a href="{{ url('/home') }}">Home</a></li>
           <li><a href="{{ url('/produk') }}">Produk</a></li>
           <li><a href="{{ url('/kategori') }}">Kategori</a></li>
           <li><a href="{{ url('/registrasi') }}">Register</a></li>
@@ -99,55 +99,23 @@ Ukuran Layar  14.1 inch</p>
         </div>
 
         <div class="row">
-
+          @foreach($list_produk as $produk)
           <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
             <div class="member">
               <div class="member-img">
+                <a href="{{url('/detail')}}">
                 <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
               </div>
               <div class="member-info">
-                <h4>Acer Aspire Spin 5 SP515</h4>
-                <span>Rp.18.599.000</span>
+                <h4>{{$produk->nama}}</h4>
+                <span>{{number_format($produk->harga)}}</span>
+                </a>
               </div>
             </div>
           </div>
+            @endforeach
 
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Dell XPS 15</h4>
-                <span>Rp.13.199.000</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>Dell Inspiron 15 7559</h4>
-                <span>Rp.17.999.000</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              </div>
-              <div class="member-info">
-                <h4>ASUS Zenbook Pro UX501</h4>
-                <span>Rp.23.300.000</span>
-              </div>
-            </div>
-          </div>
-
+          
         </div>
 
       </div>

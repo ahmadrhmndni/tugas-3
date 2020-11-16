@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
@@ -29,6 +29,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
   @include('template.section.sidebar')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          @include('template.utils.notif')
+        </div>
+      </div>
+    </div>
     @yield('content')
     </div>
   <!-- /.content-wrapper -->
