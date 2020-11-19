@@ -16,6 +16,7 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
+
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
@@ -48,29 +49,56 @@
 <!-- ======= Team Section ======= -->
     <section id="team" class="team section-bg">
       <div class="container">
-
         <div class="section-title">
           <h2>Produk Yang Tersedia</h2>
           <p>Kami Juga Menyediakan Beberapa Jenis Laptop Yang Kami Rekomendasikan Yang Mungkin Sesuai Kebutuhan Anda, Apalagi Anda Seorang Siswa Yang Mungkin Suka Bermain Game Ataupun Anda Mahasiswa IT (INFORMATIKA) Yang Senang Ngoding  Atau Mungkin Yang Sedang Anda Cari Sekarang</p>
         </div>
-
         <div class="row">
-          @foreach($list_produk as $produk)
-          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
-            <div class="member">
-              <div class="member-img">
-                <a href="{{url('/detail')}}">
-                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-header">
+                 Filter
               </div>
-              <div class="member-info">
-               <h5>{{$produk->nama}}</h5>
-              <span>{{number_format($produk->harga)}}</span>
-              </a>
+              <div class="col-md-12">
+                <form action="{{url('produk')}}" method="post"">
+                  @csrf
+                  <div class="form-group">
+                    <label for="" class="control-label">Nama</label>
+                    <input type="text" class="form-control" name="nama" value="{{$nama ?? ""}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="control-label">Stok</label>
+                    <input type="text" class="form-control" name="stok" value="{{$stok ?? ""}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="control-label">Harga Min</label>
+                    <input type="text" class="form-control" name="harga_min" value="{{$harga_min ?? ""}}">
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="control-label">Harga Max </label>
+                    <input type="text" class="form-control" name="harga_max" value="{{$harga_max ?? ""}}">
+                  </div>
+                  <button class="btn btn-warning float-right"> <i class="fa fa-search"></i> Filter</button>
+                </form>
               </div>
             </div>
           </div>
-          
+          @foreach($list_produk as $produk)
+           <div class="col-lg-3 col-md-3 d-flex align-items-stretch">
+             <div class="member">
+                <div class="member-img">
+                    <a href="{{url('/detail')}}">
+                        <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                    </div>
+                <div class="member-info">
+                    <h5>{{$produk->nama}}</h5>
+                    <span>Rp {{number_format($produk->harga)}}</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
           @endforeach
+        </div>
     </section><!-- End Team Section -->
 
     <!-- ======= Footer ======= -->
@@ -109,6 +137,10 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+<script>
+  $(".table-datatable").DataTable();
+</script>
 
   </body>
 

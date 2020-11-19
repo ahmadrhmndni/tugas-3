@@ -16,10 +16,11 @@
 @foreach($list_produk as $produk)
 			  <div class="col mb-4">
 			    <div class="card h-100">
-			      <img src="{{url('public/img/asus1.jpg')}}" class="img-thumbnail card-img-top" alt="...">
+			      <img src="{{url('public/img/asus1.jpg')}}" class="       img-thumbnail card-img-top" alt="...">
 			      <div class="card-body">
 			        <h5 class="card-title">{{$produk->nama}}</h5>
-			        <p class="text-danger"> Rp.{{number_format($produk->harga)}}</p>
+			        <p class="card-text">AMD A4-9125, 4G, 1TB HDD/256GPpcle</p>
+			        <p class="text-danger">Rp 3.899.000</p>
 			        <button class="btn btn-primary">Pesan</button>
 			      </div>
 			    </div>

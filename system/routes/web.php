@@ -35,10 +35,15 @@ Route::get('admin/registrasi' , [AuthController::class, 'showAdminRegistrasi']);
 
 
 
-Route::prefix('admin')->group(function(){
-		Route::resource('admin/produk' , ProdukController::class);
-		Route::resource('admin/kategori' , KategoriController::class);
+Route::prefix('admin')->middleware('auth')->group(function()
+{
+	Route::resource('produk' , ProdukController::class);
+	Route::resource('kategori' , KategoriController::class);
 });
+
+//Filter
+Route::post('admin/produk/filter' , [ProdukController::class, 'filter']);
+Route::post('produk' , [ClientProdukController::class, 'clientfilter']);
 
 
 Route::get('admin/produk' , [ProdukController::class, 'index']);

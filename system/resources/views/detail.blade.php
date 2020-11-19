@@ -45,7 +45,7 @@
     </div>
   </header><!-- End Header -->
 
-  <div class="container pt-5">
+  <div class="container pt-5    ">
 @foreach($list_produk as $produk)
     <div class="row">
       <div class="col-md-12 mt-5">
