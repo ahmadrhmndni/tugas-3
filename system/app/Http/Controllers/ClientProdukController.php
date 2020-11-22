@@ -33,6 +33,9 @@ class ClientProdukController extends Controller
 		return view('kategori', $data);
 	}
 
+
+
+
 	function clientfilter(){
 		$nama = request('nama');
 		$stok = explode(",", request('stok'));
